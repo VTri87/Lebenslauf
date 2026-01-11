@@ -1,13 +1,17 @@
-﻿# Lebenslauf (One-Page)
+# Lebenslauf (Website)
 
-Statische One-Page-Website fuer den Lebenslauf von Viet Tri Nguyen.
+Statische Website fuer den Lebenslauf von Viet Tri Nguyen.
 
-## Inhalt
-- `index.html`: die komplette One-Page-Seite
-- `Lebenslauf_Zertifikate.pdf`: Referenz-PDF
+## Struktur
+- `index.html`: Startseite
+- `lebenslauf/index.html`: Lebenslauf-Seite
+- `assets/css/`: Stylesheets
+- `assets/img/`: Bilder
+- `assets/pdf/`: PDFs (z.B. Zertifikate)
 
 ## Lokal ansehen
-- Windows: `start index.html`
+- Startseite: `start index.html`
+- Lebenslauf: `start lebenslauf\\index.html`
 
 ## GitHub Pages (optional)
 1. Repository Settings -> Pages
