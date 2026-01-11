@@ -1,0 +1,525 @@
+﻿<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lebenslauf | Viet Tri Nguyen</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Sora:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --ink: #0f1b2d;
+      --muted: #3f5168;
+      --bg: #f7faff;
+      --bg-2: #e9f1ff;
+      --accent: #1e5eff;
+      --accent-2: #19a0ff;
+      --card: #ffffff;
+      --border: #d8e5f8;
+      --shadow: 0 18px 40px rgba(15, 27, 45, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(800px 520px at 12% 12%, rgba(30, 94, 255, 0.12) 0%, transparent 60%),
+        radial-gradient(700px 480px at 88% 18%, rgba(25, 160, 255, 0.14) 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 24px 88px;
+      position: relative;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 140px auto auto -80px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(30, 94, 255, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      font-family: "DM Serif Display", serif;
+      font-size: 22px;
+      letter-spacing: 0.02em;
+    }
+
+    .top-actions {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pill,
+    .btn {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1px solid transparent;
+    }
+
+    .pill {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(30, 94, 255, 0.25);
+    }
+
+    .btn {
+      background: #fff;
+      color: var(--accent);
+      border-color: #cfe0ff;
+      box-shadow: 0 10px 20px rgba(30, 94, 255, 0.12);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 36px;
+    }
+
+    .hero-card {
+      padding: 28px;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .avatar {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(30, 94, 255, 0.18), rgba(25, 160, 255, 0.36));
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      border: 1px solid #cfe0ff;
+    }
+
+    .hero-primary {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-primary::after {
+      content: "";
+      position: absolute;
+      inset: -40% -30% auto auto;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(30, 94, 255, 0.18), transparent 70%);
+      pointer-events: none;
+    }
+
+    h1 {
+      font-family: "DM Serif Display", serif;
+      font-size: 48px;
+      margin: 0 0 12px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .meta {
+      display: grid;
+      gap: 8px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .meta strong { color: var(--ink); }
+
+    .contact {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+      font-size: 15px;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .taglist {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      background: #f4f7ff;
+      border: 1px solid #dfe9ff;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .section h2 {
+      font-family: "DM Serif Display", serif;
+      font-size: 28px;
+      margin: 0 0 16px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .section h2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 6px;
+      height: 22px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 12px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(30, 94, 255, 0.5), rgba(25, 160, 255, 0.12));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 36px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 2px;
+      top: 18px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--accent);
+      box-shadow: 0 6px 14px rgba(30, 94, 255, 0.2);
+    }
+
+    .timeline-content {
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 24px rgba(15, 27, 45, 0.08);
+    }
+
+    .card {
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 24px rgba(15, 27, 45, 0.08);
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .card .time {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .list {
+      padding-left: 18px;
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .highlight {
+      padding: 18px 20px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #f5f8ff 0%, #ffffff 100%);
+      border: 1px solid #d8e5f8;
+      box-shadow: 0 12px 24px rgba(15, 27, 45, 0.08);
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      h1 { font-size: 36px; }
+      .split { grid-template-columns: 1fr; }
+      .timeline::before { left: 10px; }
+      .timeline-item { padding-left: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand">Lebenslauf</div>
+      <div class="top-actions">
+        <a class="pill" href="#kontakt">Kontakt</a>
+        <a class="btn" href="Lebenslauf_Zertifikate.pdf" download>Download CV</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-card hero-primary reveal">
+        <div class="hero-header">
+          <div class="avatar">VN</div>
+          <div>
+            <h1>Viet Tri Nguyen</h1>
+            <div class="subtitle" style="margin-bottom: 0;">Fachinformatiker f&uuml;r Anwendungsentwicklung (IHK)</div>
+          </div>
+        </div>
+        <div class="subtitle">Praxis in Webentwicklung, Netzwerkanwendungen und datenbankgest&uuml;tzten Systemen</div>
+        <p class="meta">
+          <span><strong>Ort:</strong> Unna</span>
+          <span><strong>Geburtsdatum:</strong> 17.10.1987</span>
+        </p>
+        <div class="contact" id="kontakt">
+          <div><strong>Adresse:</strong> Sch&auml;ferstra&szlig;e 14, 59423 Unna</div>
+          <div><strong>Telefon:</strong> <a href="tel:+491601572108">0160/1572108</a></div>
+          <div><strong>E-Mail:</strong> <a href="mailto:viettri.nguyen87@gmail.com">viettri.nguyen87@gmail.com</a></div>
+        </div>
+      </div>
+
+      <div class="hero-card hero-secondary reveal">
+        <h2>Profil</h2>
+        <p class="subtitle" style="margin-top: 0;">
+          Praxis in der Entwicklung einer webbasierten Netzwerkanwendung (Python, Flask, MariaDB) unter Linux.
+          Starke organisatorische Erfahrung aus der Selbst&auml;ndigkeit im Gastronomiebereich.
+        </p>
+        <div class="taglist">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">MariaDB / MySQL</span>
+          <span class="tag">HTML &amp; CSS</span>
+          <span class="tag">Linux (Debian)</span>
+          <span class="tag">Windows 11</span>
+          <span class="tag">Netzwerk-Grundlagen</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2>Berufserfahrung</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time">10.2024 - 05.2025</div>
+            <h3>Andreas Schulz IT Systemhaus, Unna &mdash; Abschlussprojekt (Praktikum)</h3>
+            <ul class="list">
+              <li>Entwicklung einer Webanwendung zur Verwaltung von Netzwerkkonfigurationen</li>
+              <li>Backend: Python, Flask, MariaDB (MySQL)</li>
+              <li>Frontend: HTML, CSS</li>
+              <li>Arbeiten mit Linux-Systemen und Netzwerkfunktionen</li>
+              <li>Umsetzung von Benutzer- und Rollenlogik (Admin/Benutzer)</li>
+              <li>SQL-Abfragen und Datenbanktabellen</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time">03.2017 - 01.2023</div>
+            <h3>Spicy Wok, L&uuml;dinghausen &mdash; Selbstst&auml;ndige T&auml;tigkeit</h3>
+            <ul class="list">
+              <li>F&uuml;hrung eines kleinen Gastronomiebetriebs</li>
+              <li>Organisation und Verantwortung f&uuml;r Betrieb &amp; Finanzen</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time">08.2015 - 02.2017</div>
+            <h3>Bock auf Wok, D&uuml;lmen &mdash; Chef Koch</h3>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time">04.2014 - 07.2015</div>
+            <h3>Kitty Chai, K&ouml;ln &amp; Wuppertal &mdash; Chef Koch</h3>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time">07.2011 - 02.2014</div>
+            <h3>Thai Express, Mainz &mdash; Koch</h3>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2>Ausbildung &amp; Weiterbildung</h2>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time">07.2023 - 07.2025</div>
+            <h3>WBS TRAINING AG, Dortmund</h3>
+            <p class="subtitle">Umschulung: Fachinformatiker f&uuml;r Anwendungsentwicklung (IHK)</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time">08.2000 - 04.2006</div>
+            <h3>Wilhelmschule, Lippstadt</h3>
+            <p class="subtitle">Realschulabschluss</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="time">08.1995 - 07.2000</div>
+            <h3>Nikolaischule, Lippstadt</h3>
+            <p class="subtitle">Grundschule</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2>Kenntnisse &amp; Interessen</h2>
+      <div class="split">
+        <div class="card">
+          <h3>Sprachen</h3>
+          <ul class="list">
+            <li>Deutsch (flie&szlig;end)</li>
+            <li>Englisch (Grundkenntnisse)</li>
+            <li>Vietnamesisch (Grundkenntnisse / Alltagssprache)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>IT-Kenntnisse</h3>
+          <ul class="list">
+            <li>Backend: Python, Flask, MariaDB (MySQL)</li>
+            <li>Frontend: HTML, CSS</li>
+            <li>Systeme: Linux (Debian), Windows 11</li>
+            <li>Netzwerk &amp; Administration (Grundlagen)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Hobbys</h3>
+          <p class="subtitle">Online-Games (klassisch), Reisen</p>
+        </div>
+        <div class="card">
+          <h3>Sonstiges</h3>
+          <p class="subtitle">F&uuml;hrerschein Klasse B (seit 2008), eigener PKW vorhanden</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2>Zertifikat</h2>
+      <div class="highlight">
+        <strong>Umschulung Fachinformatiker/in AE (IHK)</strong><br />
+        17.07.2023 &ndash; 30.06.2025 &middot; Note: 2 (gut) &middot; 85 % &middot; 4146 Unterrichtsstunden &middot; inkl. 6 Monate Praktikum
+      </div>
+    </section>
+
+    <div class="footer reveal">
+      Stand: 14.12.2025 &middot; Unna
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
