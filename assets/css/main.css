@@ -61,6 +61,7 @@ body {
   font-size: 14px;
   font-weight: 600;
   border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .pill {
@@ -74,6 +75,18 @@ body {
   color: var(--accent);
   border-color: #cfe0ff;
   box-shadow: 0 10px 20px rgba(30, 94, 255, 0.12);
+}
+
+.pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(30, 94, 255, 0.35);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(30, 94, 255, 0.22);
 }
 
 .hero {
@@ -90,6 +103,12 @@ body {
   background: var(--card);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 52px rgba(15, 27, 45, 0.16);
 }
 
 .hero-primary {
@@ -172,6 +191,12 @@ h2 {
   background: var(--card);
   border: 1px solid var(--border);
   box-shadow: 0 12px 24px rgba(15, 27, 45, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px rgba(15, 27, 45, 0.14);
 }
 
 .card h3 {
@@ -192,8 +217,19 @@ h2 {
 
 .footer {
   margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
   font-size: 14px;
   color: var(--muted);
+}
+
+/* Focus styles for accessibility */
+.pill:focus-visible,
+.btn:focus-visible,
+.contact a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
 .reveal {
@@ -210,4 +246,16 @@ h2 {
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
   h1 { font-size: 36px; }
+}
+
+@media (max-width: 480px) {
+  .page { padding: 24px 14px 60px; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 22px; }
+  .hero-card { padding: 20px 16px; }
+  .topbar { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .top-actions { width: 100%; justify-content: flex-start; }
+  .subtitle { font-size: 16px; }
+  .card { padding: 14px 16px; }
+  .profile-photo { width: min(180px, 100%); }
 }
